@@ -29,7 +29,7 @@ public class DBConnectTest {
 	
 	@Test
 	public void 디비연결테스트() {
-		logger.debug("디비연결 테스트 실행");
+		logger.info("디비연결 테스트 실행");
 		logger.info("sqlSession" + sqlSession);
 
 //		logger.debug("ds" + ds);
