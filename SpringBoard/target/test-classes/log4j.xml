@@ -12,7 +12,13 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.itwllbs.controller">
-		<level value="info" />
+		<level value=" debug" />
+	</logger>
+	<logger name="com.itwllbs.persistence">
+		<level value=" debug" />
+	</logger>
+	<logger name="com.itwllbs.service">
+		<level value=" debug" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
