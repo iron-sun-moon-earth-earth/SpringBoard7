@@ -17,10 +17,17 @@
  	select * from tbl_board
  </select> 
   
+  <!-- 글 조회수 1 증가 -->
+  <update id="updateReadCnt">
+  	update tbl_board set viewcnt=viewcnt+1
+  	where bno=#{bno}
+  </update>
   
-  
-  
-  
+  <!--  특정 글 정보를 조회 -->
+  <select id="getPage" resultType="BoardVO">
+  	select * from tbl_board
+  	where bno=#{bno}
+  </select>
   
   
   

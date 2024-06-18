@@ -12,4 +12,10 @@ public interface BoardService {
 	// 글 전체 목록 조회
 	public List<BoardVO> listAll() throws Exception;
 	
+	// 글 조회수 1증가
+	public void upupdateReadCnt(int bno) throws Exception;
+	
+	// 특정 bno의 글 정보 가져오기
+	public BoardVO getPage(int bno) throws Exception;
+	
 }
