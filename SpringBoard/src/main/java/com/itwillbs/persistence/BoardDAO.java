@@ -20,6 +20,9 @@ public interface BoardDAO {
 
 	// 수정하기
 	public void updateBoard(BoardVO vo) throws Exception;
+
+	// 삭제하기
+	public void deleteBoard(int bno) throws Exception;
 	
 	
 	

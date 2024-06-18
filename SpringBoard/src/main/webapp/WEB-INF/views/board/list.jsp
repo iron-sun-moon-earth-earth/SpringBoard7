@@ -96,6 +96,17 @@
 			  confirmButtonText: "확인"
 			});
 		}
+		if(result == "deleteOK"){
+
+			Swal.fire({
+			  icon: "info",
+			  title: "삭제 완료",
+			  showConfirmButton: true,
+			  confirmButtonText: "확인"
+			});
+		}
+		
+		
 	});
 </script>
 

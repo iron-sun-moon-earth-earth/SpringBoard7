@@ -148,7 +148,21 @@ public class BoardController {
 		return "redirect:/board/listAll";
 	}
 	
-	
+	// 게시판 글 삭제하기 - POST
+	@RequestMapping(value = "/remove",method = RequestMethod.POST)
+	public String removePOST(/*@RequestParam("bno")*/ /* @ModelAttribute("bno") */int bno, RedirectAttributes rttr) throws Exception{
+		logger.debug("removePOST() 실행");
+		
+		logger.debug("삭제할 글 번호, {}",bno);
+		// 서비스 - DAO 글내용을 수정
+		bService.deleteBoard(bno);
+		
+		// 상태 정보 저장
+		rttr.addFlashAttribute("msg", "deleteOK");
+		
+		// 페이지 이동(listAll.jsp)
+		return "redirect:/board/listAll";
+	}
 	
 	
 }// Controller

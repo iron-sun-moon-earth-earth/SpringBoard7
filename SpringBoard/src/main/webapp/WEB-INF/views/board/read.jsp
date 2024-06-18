@@ -54,17 +54,19 @@
 			//location.href='/board/update';
 		});
 
+		// '삭제하기' 버튼 클릭시 삭제 후 리스트 페이지로 이동
+		$(".btn-warning").click(function(){
+			$("form[role='form']").attr("action","/board/remove");
+			$("form[role='form']").submit();			
+			
+		});
+		
 		// '리스트' 버튼 클릭시 리스트 페이지로 이동
 		$(".btn-primary").click(function(){
 			//alert("클릭!");
 			location.href='/board/listAll';
 		});
 		
-		// '삭제하기' 버튼 클릭시 리스트 페이지로 이동
-		$(".btn-primary").click(function(){
-			//alert("클릭!");
-			location.href='/board/listAll';
-		});
 		
 	})
 	
