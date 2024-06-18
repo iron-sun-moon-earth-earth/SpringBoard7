@@ -36,5 +36,20 @@ public class BoardServiceImpl implements BoardService {
 		return bdao.listAll();
 	}
 
+	@Override
+	public void upupdateReadCnt(int bno) throws Exception {
+		logger.debug("upupdateReadCnt(int bno) 실행");
+		
+		bdao.updateReadCnt(bno);
+	}
+
+	@Override
+	public BoardVO getPage(int bno) throws Exception {
+		logger.debug("getPage(int bno) 실행");
+		
+		return bdao.getPage(bno);
+		
+	}
+
 	
 }
