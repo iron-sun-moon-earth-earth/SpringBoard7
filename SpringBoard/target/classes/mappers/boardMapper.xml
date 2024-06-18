@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 마이바티스 홈페이지에서 시작하기  dtd 복사해오기 -->
+
+<mapper namespace="com.itwillbs.mapper.BoardMapper">
+  
+  <!-- 글쓰기 -->
+  <insert id="create">
+  	insert into tbl_board (title,content,writer) 
+  	values (#{title},#{content},#{writer})
+  </insert>
+  
+ <!-- 글 목록 조회 -->
+ <select id="listAll" resultType="BoardVO">
+ 	select * from tbl_board
+ </select> 
+  
+  <!-- 글 조회수 1 증가 -->
+  <update id="updateReadCnt">
+  	update tbl_board set viewcnt=viewcnt+1
+  	where bno=#{bno}
+  </update>
+  
+  <!--  특정 글 정보를 조회 -->
+  <select id="getPage" resultType="BoardVO">
+  	select * from tbl_board
+  	where bno=#{bno}
+  </select>
+  
+  <!-- 특정 글 정보를 수정 -->
+  <update id="updateBoard">
+  	update tbl_board set title=#{title}, writer=#{writer}, content=#{content}
+  	where bno=#{bno}
+  </update>
+  
+  <!-- 특정 글 정보를 삭제 -->
+  <delete id="deleteBoard">
+  	delete from tbl_board
+  	where bno=#{bno}
+  </delete>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+</mapper>
