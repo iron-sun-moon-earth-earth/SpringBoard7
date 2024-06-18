@@ -87,7 +87,15 @@
 		
 		/* sweetAlert */
 		// Swal.fire("아이티윌 테스트");
-		
+		if(result == "updateOK"){
+
+			Swal.fire({
+			  icon: "success",
+			  title: "수정 완료",
+			  showConfirmButton: true,
+			  confirmButtonText: "확인"
+			});
+		}
 	});
 </script>
 

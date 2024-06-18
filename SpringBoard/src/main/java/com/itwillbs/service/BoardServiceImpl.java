@@ -51,5 +51,12 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Override
+	public void updateBoard(BoardVO vo) throws Exception {
+		logger.debug("updateBoard(BoardVO vo) 실행");
+		bdao.updateBoard(vo);
+		
+	}
+
 	
 }

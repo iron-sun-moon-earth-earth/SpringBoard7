@@ -17,6 +17,9 @@ public interface BoardDAO {
 
 	// 본문 내용 가져오기
 	public BoardVO getPage(int bno) throws Exception;
+
+	// 수정하기
+	public void updateBoard(BoardVO vo) throws Exception;
 	
 	
 	

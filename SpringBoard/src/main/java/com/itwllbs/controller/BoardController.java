@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.persistence.BoardDAO;
 import com.itwillbs.service.BoardService;
+
 
 @Controller
 @RequestMapping(value = "/board/*")
@@ -106,6 +108,47 @@ public class BoardController {
 		// 전달할 정보를 저장
 		model.addAttribute("resultVO", resultVO);
 		// 연결된 뷰페이지 이동
-		
 	}
-}
+	
+	// 게시판 글 수정하기  (기존의 글정보 확인) -GET
+	@RequestMapping(value = "/modify",method = RequestMethod.GET)
+	public String modifyGET(Model model, @RequestParam("bno") int bno /* @ModelAttribute */) throws Exception{
+		logger.debug("modifyGET() 실행");
+		
+		// 전달정보 bno 저장
+		logger.debug("bno :" + bno);
+		
+		// 서비스 - DAO 글정보 조회 동작
+		BoardVO resultVO = bService.getPage(bno);
+		logger.debug("resultVO : {}", resultVO);
+		
+		// 연결된 뷰페이지로 정보 전달
+		model.addAttribute("resultVO", resultVO);
+		
+		// /board/modify.jsp
+		
+		return "/board/modify";
+	}
+	
+	// 게시판 글 수정하기(글 정보 수정) -POST
+	@RequestMapping(value = "/modify",method = RequestMethod.POST)
+	public String modifyPOST(BoardVO vo, RedirectAttributes rttr) throws Exception{
+		logger.debug("modifyPOST() 실행");
+		// 한글처리 인코딩(필터)
+		// 전달 정보 저장
+		logger.debug("수정할 내용, {}",vo);
+		
+		// 서비스 - DAO 글내용을 수정
+		bService.updateBoard(vo);
+		
+		// 상태 정보 저장
+		rttr.addFlashAttribute("msg", "updateOK");
+		
+		// 페이지 이동(listAll.jsp)
+		return "redirect:/board/listAll";
+	}
+	
+	
+	
+	
+}// Controller

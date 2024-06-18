@@ -29,8 +29,11 @@
   	where bno=#{bno}
   </select>
   
-  
-  
+  <!-- 특정 글 정보를 수정 -->
+  <update id="updateBoard">
+  	update tbl_board set title=#{title}, writer=#{writer}, content=#{content}
+  	where bno=#{bno}
+  </update>
   
   
   
