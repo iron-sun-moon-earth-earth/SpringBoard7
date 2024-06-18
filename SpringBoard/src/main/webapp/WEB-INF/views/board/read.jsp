@@ -7,7 +7,7 @@
 		<h3 class="box-title">/board/read_${resultVO.bno }.jsp</h3>
 	</div>
 
-		<form action="" method="post">
+		<form role="form" action="" method="post">
 			<input type="hidden" name="bno" value="${resultVO.bno }">
 			<%-- <input type="hidden" name="bno" value="${param.bno }"> --%>
 		</form>
@@ -47,9 +47,10 @@
 		$(".btn-danger").click(function(){
 			
 			// 수정페이지로 이동(+bno)
-			$("form").attr("action","/board/modify");
-			$("form").attr("method","GET");
-			$("form").submit();
+			// $("form").attr("action","/board/modify"); jsp페이지 내의 모든 form태그에 정보 전달
+			$("form[role='form']").attr("action","/board/modify");
+			$("form[role='form']").attr("method","GET");
+			$("form[role='form']").submit();
 			//location.href='/board/update';
 		});
 
