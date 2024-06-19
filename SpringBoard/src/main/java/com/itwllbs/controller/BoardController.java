@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 import com.itwillbs.persistence.BoardDAO;
 import com.itwillbs.service.BoardService;
 
@@ -69,6 +70,25 @@ public class BoardController {
 		
 		// 서비스 -> DB의 정보를 가져오기
 		List<BoardVO> boardList = bService.listAll();
+		logger.debug("size : " + boardList.size());
+		
+		// 연결되 뷰페이지로 정보 전달
+		model.addAttribute("boardList", boardList);
+		
+		return "/board/list";
+	}
+	
+	// 게시판 글목록 조회 - GET
+	@RequestMapping(value = "/listPage",method = RequestMethod.GET)
+	public String listPageGET(Criteria cri ,Model model) throws Exception {
+		logger.debug("/listPage -> listPageGET(Model model) 호출");
+		// 페이징 처리 정보 객체
+//		Criteria cri = new Criteria();
+//		cri.setPage(2);
+//		cri.setPageSize(10);
+		
+		// 서비스 -> DB의 정보를 가져오기
+		List<BoardVO> boardList = bService.listPage(cri);
 		logger.debug("size : " + boardList.size());
 		
 		// 연결되 뷰페이지로 정보 전달

@@ -41,7 +41,26 @@
   	where bno=#{bno}
   </delete>
   
-  
+  <!-- 게시판 글 목록(페이징 처리 1) -->
+  <select id="listPage" resultType="BoardVO">
+  	<![CDATA[
+	  	select * from tbl_board
+	  	where bno > 0
+	  	order by bno desc, regdate desc
+	  	limit #{page},10
+	  	
+  	]]>
+  </select>
+
+  <!-- 게시판 글 목록(페이징 처리 2) -->
+  <select id="listPage2" resultType="BoardVO">
+  	<![CDATA[
+	  	select * from tbl_board
+	  	where bno > 0
+	  	order by bno desc, regdate desc
+	  	limit #{pageStart},#{pageSize}
+  	]]>
+  </select>
   
   
   
