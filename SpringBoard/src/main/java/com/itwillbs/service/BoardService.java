@@ -26,5 +26,8 @@ public interface BoardService {
 	public void deleteBoard(int bno) throws Exception;
 
 	// 글 목록 조회(페이징 처리)
-	public List<BoardVO> listPage(Criteria cri) throws Exception;	
+	public List<BoardVO> listPage(Criteria cri) throws Exception;
+
+	
+	public int getTotalCount();	
 }

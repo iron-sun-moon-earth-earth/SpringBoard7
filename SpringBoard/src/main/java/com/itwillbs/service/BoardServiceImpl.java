@@ -72,5 +72,11 @@ public class BoardServiceImpl implements BoardService {
 		return bdao.listPage(cri);
 	}
 
+	@Override
+	public int getTotalCount() {
+		// TODO Auto-generated method stub
+		return bdao.getTotalCount();
+	}
+
 	
 }

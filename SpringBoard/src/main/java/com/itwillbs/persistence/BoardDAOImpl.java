@@ -89,6 +89,12 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		return sqlSession.selectList(NAMESPACE+"listPage2", cri);
 	}
+
+	@Override
+	public int getTotalCount() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPACE+"totalCount");
+	}
 	
 	
 	
