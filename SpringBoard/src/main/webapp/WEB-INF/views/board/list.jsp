@@ -27,7 +27,7 @@ ${pageVO}
 					<tr>
 						<td>${boardList.bno }</td>
 						<td>
-							<a href="/board/read?bno=${boardList.bno}">${boardList.title }
+							<a href="/board/read?bno=${boardList.bno}&page=${param.page==null? 1:param.page}">${boardList.title }
 						</td>
 						<td>${boardList.writer }</td>
 						<td><fmt:formatDate value="${boardList.regdate }" /> <%-- 						<fmt:formatDate type="both" value="${boardList.regdate }" pattern="yyyy-MM-dd (a)HH:mm:ss"/>  --%></td>

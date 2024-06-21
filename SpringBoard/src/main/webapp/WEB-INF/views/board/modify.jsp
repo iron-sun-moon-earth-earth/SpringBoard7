@@ -8,7 +8,9 @@
 	</div>
 
 	<form role="form" action="" method="post">
-
+		
+		<input type="hidden" name="page" value="${param.page}">
+		<%-- <input type="hidden" name="pageSize" value="${param.pageSize}"> --%>
 	
 		<div class="box-body">
 			<div class="form-group">

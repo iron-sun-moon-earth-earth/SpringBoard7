@@ -10,6 +10,8 @@
 		<form role="form" action="" method="post">
 			<input type="hidden" name="bno" value="${resultVO.bno }">
 			<%-- <input type="hidden" name="bno" value="${param.bno }"> --%>
+			<input type="hidden" name="page" value="${cri.page }">
+			<input type="hidden" name="pageSize" value="${cri.pageSize }">
 		</form>
 	
 		<div class="box-body">
@@ -64,12 +66,16 @@
 		// '리스트' 버튼 클릭시 리스트 페이지로 이동
 		$(".btn-primary").click(function(){
 			//alert("클릭!");
-			location.href='/board/listAll';
+			// location.href='/board/listPage';
+			// location.href='/board/listPage?page=${cri.page}&pageSize={cri.pageSize}';
+			location.href='/board/listPage?page=${cri.page}';
 		});
 		
 		
 	})
 	
 </script>
+
+<%-- ${cri } --%>
 
 <%@ include file="../include/footer.jsp"%>
