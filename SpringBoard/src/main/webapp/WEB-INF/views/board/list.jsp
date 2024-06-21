@@ -5,6 +5,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <h1>/board/list.jsp</h1>
+${pageVO} 
 
 <div class="box">
 	<div class="box-header with-border">
@@ -26,7 +27,7 @@
 					<tr>
 						<td>${boardList.bno }</td>
 						<td>
-							<a href="/board/read?bno=${boardList.bno}">${boardList.title }
+							<a href="/board/read?bno=${boardList.bno}&page=${param.page==null? 1:param.page}">${boardList.title }
 						</td>
 						<td>${boardList.writer }</td>
 						<td><fmt:formatDate value="${boardList.regdate }" /> <%-- 						<fmt:formatDate type="both" value="${boardList.regdate }" pattern="yyyy-MM-dd (a)HH:mm:ss"/>  --%></td>
@@ -60,11 +61,18 @@
 
 	<div class="box-footer clearfix">
 		<ul class="pagination pagination-sm no-margin pull-right">
-			<li><a href="#">«</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">»</a></li>
+			<c:if test="${pageVO.prev }">
+				<li><a href="/board/listPage?page=${pageVO.startPage-1 }">«</a></li>
+			</c:if>
+			<c:forEach var="i" 
+					   begin="${pageVO.startPage }" end="${pageVO.endPage}" step="1">
+				<li ${pageVO.cri.page == i? 'class="active"':'' }>
+					<a href="/board/listPage?page=${i }">${i }</a>
+				</li>		
+			</c:forEach>			
+			<c:if test="${pageVO.next && pageVO.endPage > 0 }"> 
+				<li><a href="/board/listPage?page=${pageVO.endPage+1 }">»</a></li>
+			</c:if>
 		</ul>
 	</div>
 </div>
