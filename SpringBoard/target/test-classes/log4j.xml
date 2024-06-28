@@ -11,13 +11,16 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.itwllbs.controller">
+	<logger name="com.itwillbs.controller">
 		<level value=" debug" />
 	</logger>
-	<logger name="com.itwllbs.persistence">
+	<logger name="com.itwillbs.persistence">
 		<level value=" debug" />
 	</logger>
-	<logger name="com.itwllbs.service">
+	<logger name="com.itwillbs.service">
+		<level value=" debug" />
+	</logger>
+	<logger name="com.itwillbs.fileupload">
 		<level value=" debug" />
 	</logger>
 	
